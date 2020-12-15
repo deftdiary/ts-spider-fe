@@ -20,7 +20,6 @@ class Home extends Component<{}, State> {
     }
     this.handleLoginoutClick = this.handleLoginoutClick.bind(this)
     this.handleSpiderClick = this.handleSpiderClick.bind(this)
-    this.handleShowDataClick = this.handleShowDataClick.bind(this)
   }
 
   componentDidMount() {
@@ -60,14 +59,6 @@ class Home extends Component<{}, State> {
     })
   }
 
-  handleShowDataClick() {
-    axios.get('/api/showData').then((res) => {
-      this.setState({
-        data: res.data.data
-      })
-    })
-  }
-
   render() {
     const { isLogin, loaded } = this.state
     if (isLogin) {
@@ -78,7 +69,7 @@ class Home extends Component<{}, State> {
               <Button type="primary" onClick={this.handleSpiderClick}>
                 启动小蜘蛛
               </Button>
-              <Button onClick={this.handleShowDataClick}><Link to="/showData">展示获取数据</Link></Button>
+              <Button><Link to="/showData">展示获取数据</Link></Button>
               <Button type="primary" danger onClick={this.handleLoginoutClick}>
                 退出
               </Button>
