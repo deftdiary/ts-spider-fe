@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
-  background: url('./assets/584e0d52ddf3f.jpg') center no-repeat;
+  background-color: #718093;
 }
