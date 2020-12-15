@@ -24,7 +24,7 @@ const ShowData: React.FunctionComponent = () => {
     {
       title: '搜索热度',
       dataIndex: 'search',
-      key: 'searchk'
+      key: 'search'
     }
   ]
 
