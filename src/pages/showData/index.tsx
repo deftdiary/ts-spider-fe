@@ -2,9 +2,19 @@ import { Table } from 'antd'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+interface newsData {
+  title: string
+  desc: string
+  rank: number
+  search: number
+}
+
+interface DataProps {
+  [key: number]: newsData[]
+}
+
 const ShowData: React.FunctionComponent = () => {
-  // to-do any change 
-  const [data, setData] = useState<any[]>([])
+  const [data, setData] = useState<newsData[]>([])
   const columns = [
     {
       title: '排名',
@@ -30,11 +40,11 @@ const ShowData: React.FunctionComponent = () => {
 
   useEffect(() => {
     axios.get('/api/showData').then((res) => {
-      const { data } = res.data
-      let temp: any[] = []
+      const data: DataProps = res.data.data 
+      let temp: newsData[] = []
       for (let news in data) {
-        for (let val in data[news]) {
-          temp.push(data[news][val])
+        for (let item in data[news] as newsData[]) {
+          temp.push(data[news][item])
         }
       }
       setData(temp)
